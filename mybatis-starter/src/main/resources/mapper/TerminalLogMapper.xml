@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.enoch.studio.dao.TerminalLogMapper">
+    <select id="queryTerminalLog" resultType="com.enoch.studio.model.TerminalLog">
+		SELECT
+		t.Num, t.TerminalID, t.Time, t.StationID, t.LogType, t.Length, t.Event,
+		DATE_FORMAT(t.TimeSave,'%Y-%m-%d %h:%m:%s') TimeSave,d.title
+		FROM terminallog t, deploy d
+		WHERE t.StationID = d.StationID
+	</select>
+</mapper>

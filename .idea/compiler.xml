@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="common" />
+        <module name="mybatis-generator-plugin-starter" />
+        <module name="mybatis-generator-starter" />
+        <module name="mybatis-starter" />
+        <module name="sms-starter" />
+        <module name="spring-starter" />
+        <module name="springmvc-spring-mybatis-starter" />
+        <module name="springmvc-starter" />
+        <module name="struts2-starter" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.7" />
+      <module name="JavaEE" target="1.7" />
+      <module name="mybatis-generator-plugin-starter" target="1.7" />
+      <module name="mybatis-generator-starter" target="1.7" />
+      <module name="mybatis-starter" target="1.7" />
+      <module name="sms-starter" target="1.7" />
+      <module name="spring-starter" target="1.7" />
+      <module name="springmvc-spring-mybatis-starter" target="1.7" />
+      <module name="springmvc-starter" target="1.7" />
+      <module name="struts2-starter" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

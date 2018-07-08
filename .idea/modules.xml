@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JavaEE.iml" filepath="$PROJECT_DIR$/JavaEE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-generator-plugin-starter/mybatis-generator-plugin-starter.iml" filepath="$PROJECT_DIR$/mybatis-generator-plugin-starter/mybatis-generator-plugin-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-generator-starter/mybatis-generator-starter.iml" filepath="$PROJECT_DIR$/mybatis-generator-starter/mybatis-generator-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-starter/mybatis-starter.iml" filepath="$PROJECT_DIR$/mybatis-starter/mybatis-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sms-starter/sms-starter.iml" filepath="$PROJECT_DIR$/sms-starter/sms-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-starter/spring-starter.iml" filepath="$PROJECT_DIR$/spring-starter/spring-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc-spring-mybatis-starter/springmvc-spring-mybatis-starter.iml" filepath="$PROJECT_DIR$/springmvc-spring-mybatis-starter/springmvc-spring-mybatis-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc-starter/springmvc-starter.iml" filepath="$PROJECT_DIR$/springmvc-starter/springmvc-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/struts2-starter/struts2-starter.iml" filepath="$PROJECT_DIR$/struts2-starter/struts2-starter.iml" />
+    </modules>
+  </component>
+</project>

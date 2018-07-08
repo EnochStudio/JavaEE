@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-generator-plugin-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-generator-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mybatis-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sms-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springmvc-spring-mybatis-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springmvc-starter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/struts2-starter" charset="UTF-8" />
+  </component>
+</project>

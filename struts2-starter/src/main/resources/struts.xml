@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.devMode" value="true"></constant>
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant>
+    <constant name="struts.locale" value="zh_CN"></constant>
+
+    <package name="enoch" extends="struts-default" >
+        <!--自定义拦截器，没有添加defaultStack导致Action无法接受到参数-->
+        <!--<interceptors>-->
+            <!--<interceptor name="sessionInterceptor" class="com.enoch.studio.interceptor.SessionInterceptor">-->
+            <!--</interceptor>-->
+            <!--<interceptor-stack name="sessionStack">-->
+                <!--<interceptor-ref name="sessionInterceptor"></interceptor-ref>-->
+                <!--<interceptor-ref name="defaultStack"></interceptor-ref>-->
+            <!--</interceptor-stack>-->
+        <!--</interceptors>-->
+        <!--<default-interceptor-ref name="sessionStack"></default-interceptor-ref>-->
+
+        <action name="login" class="com.enoch.studio.action.LoginAction">
+            <result>
+                index.jsp
+            </result>
+        </action>
+
+    </package>
+
+
+</struts>

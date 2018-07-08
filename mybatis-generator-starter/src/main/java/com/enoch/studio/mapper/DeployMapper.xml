@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.enoch.studio.dao.DeployMapper">
+  <resultMap id="BaseResultMap" type="com.enoch.studio.model.Deploy">
+    <constructor>
+      <idArg column="TerminalID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <idArg column="StationID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="Title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RegionID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="DistrictID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="Address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Longitude" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="Latitude" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="Contact" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TimeSave" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="Operator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DeleteFlag" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="InstallationCompany" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="InstallationTime" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="InstallationPersonnelName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="InstallationPersonnelContacts" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MaintenancePersonnelName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MaintenancePersonnelContacts" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="note" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Sort" javaType="java.lang.Short" jdbcType="SMALLINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TerminalID, StationID, Title, RegionID, DistrictID, Address, Longitude, Latitude, 
+    Contact, Tel, TimeSave, Operator, DeleteFlag, InstallationCompany, InstallationTime, 
+    InstallationPersonnelName, InstallationPersonnelContacts, MaintenancePersonnelName, 
+    MaintenancePersonnelContacts, note, Sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.enoch.studio.model.DeployKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deploy
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.enoch.studio.model.DeployKey">
+    delete from deploy
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="com.enoch.studio.model.Deploy">
+    insert into deploy (TerminalID, StationID, Title, 
+      RegionID, DistrictID, Address, 
+      Longitude, Latitude, Contact, 
+      Tel, TimeSave, Operator, 
+      DeleteFlag, InstallationCompany, InstallationTime, 
+      InstallationPersonnelName, InstallationPersonnelContacts, 
+      MaintenancePersonnelName, MaintenancePersonnelContacts, 
+      note, Sort)
+    values (#{terminalid,jdbcType=SMALLINT}, #{stationid,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, 
+      #{regionid,jdbcType=SMALLINT}, #{districtid,jdbcType=SMALLINT}, #{address,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=REAL}, #{latitude,jdbcType=REAL}, #{contact,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{timesave,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, 
+      #{deleteflag,jdbcType=TINYINT}, #{installationcompany,jdbcType=VARCHAR}, #{installationtime,jdbcType=DATE}, 
+      #{installationpersonnelname,jdbcType=VARCHAR}, #{installationpersonnelcontacts,jdbcType=VARCHAR}, 
+      #{maintenancepersonnelname,jdbcType=VARCHAR}, #{maintenancepersonnelcontacts,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{sort,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.enoch.studio.model.Deploy">
+    insert into deploy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="terminalid != null">
+        TerminalID,
+      </if>
+      <if test="stationid != null">
+        StationID,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="regionid != null">
+        RegionID,
+      </if>
+      <if test="districtid != null">
+        DistrictID,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="longitude != null">
+        Longitude,
+      </if>
+      <if test="latitude != null">
+        Latitude,
+      </if>
+      <if test="contact != null">
+        Contact,
+      </if>
+      <if test="tel != null">
+        Tel,
+      </if>
+      <if test="timesave != null">
+        TimeSave,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="deleteflag != null">
+        DeleteFlag,
+      </if>
+      <if test="installationcompany != null">
+        InstallationCompany,
+      </if>
+      <if test="installationtime != null">
+        InstallationTime,
+      </if>
+      <if test="installationpersonnelname != null">
+        InstallationPersonnelName,
+      </if>
+      <if test="installationpersonnelcontacts != null">
+        InstallationPersonnelContacts,
+      </if>
+      <if test="maintenancepersonnelname != null">
+        MaintenancePersonnelName,
+      </if>
+      <if test="maintenancepersonnelcontacts != null">
+        MaintenancePersonnelContacts,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="sort != null">
+        Sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="terminalid != null">
+        #{terminalid,jdbcType=SMALLINT},
+      </if>
+      <if test="stationid != null">
+        #{stationid,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="regionid != null">
+        #{regionid,jdbcType=SMALLINT},
+      </if>
+      <if test="districtid != null">
+        #{districtid,jdbcType=SMALLINT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=REAL},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="timesave != null">
+        #{timesave,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null">
+        #{deleteflag,jdbcType=TINYINT},
+      </if>
+      <if test="installationcompany != null">
+        #{installationcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="installationtime != null">
+        #{installationtime,jdbcType=DATE},
+      </if>
+      <if test="installationpersonnelname != null">
+        #{installationpersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="installationpersonnelcontacts != null">
+        #{installationpersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelname != null">
+        #{maintenancepersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelcontacts != null">
+        #{maintenancepersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.enoch.studio.model.Deploy">
+    update deploy
+    <set>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="regionid != null">
+        RegionID = #{regionid,jdbcType=SMALLINT},
+      </if>
+      <if test="districtid != null">
+        DistrictID = #{districtid,jdbcType=SMALLINT},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        Longitude = #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        Latitude = #{latitude,jdbcType=REAL},
+      </if>
+      <if test="contact != null">
+        Contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="timesave != null">
+        TimeSave = #{timesave,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null">
+        DeleteFlag = #{deleteflag,jdbcType=TINYINT},
+      </if>
+      <if test="installationcompany != null">
+        InstallationCompany = #{installationcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="installationtime != null">
+        InstallationTime = #{installationtime,jdbcType=DATE},
+      </if>
+      <if test="installationpersonnelname != null">
+        InstallationPersonnelName = #{installationpersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="installationpersonnelcontacts != null">
+        InstallationPersonnelContacts = #{installationpersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelname != null">
+        MaintenancePersonnelName = #{maintenancepersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelcontacts != null">
+        MaintenancePersonnelContacts = #{maintenancepersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        Sort = #{sort,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.enoch.studio.model.Deploy">
+    update deploy
+    set Title = #{title,jdbcType=VARCHAR},
+      RegionID = #{regionid,jdbcType=SMALLINT},
+      DistrictID = #{districtid,jdbcType=SMALLINT},
+      Address = #{address,jdbcType=VARCHAR},
+      Longitude = #{longitude,jdbcType=REAL},
+      Latitude = #{latitude,jdbcType=REAL},
+      Contact = #{contact,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      TimeSave = #{timesave,jdbcType=TIMESTAMP},
+      Operator = #{operator,jdbcType=VARCHAR},
+      DeleteFlag = #{deleteflag,jdbcType=TINYINT},
+      InstallationCompany = #{installationcompany,jdbcType=VARCHAR},
+      InstallationTime = #{installationtime,jdbcType=DATE},
+      InstallationPersonnelName = #{installationpersonnelname,jdbcType=VARCHAR},
+      InstallationPersonnelContacts = #{installationpersonnelcontacts,jdbcType=VARCHAR},
+      MaintenancePersonnelName = #{maintenancepersonnelname,jdbcType=VARCHAR},
+      MaintenancePersonnelContacts = #{maintenancepersonnelcontacts,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      Sort = #{sort,jdbcType=SMALLINT}
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.enoch.studio.model.Deploy">
+    <constructor>
+      <idArg column="TerminalID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <idArg column="StationID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="Title" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="RegionID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="DistrictID" javaType="java.lang.Short" jdbcType="SMALLINT" />
+      <arg column="Address" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Longitude" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="Latitude" javaType="java.lang.Float" jdbcType="REAL" />
+      <arg column="Contact" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Tel" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="TimeSave" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="Operator" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="DeleteFlag" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="InstallationCompany" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="InstallationTime" javaType="java.util.Date" jdbcType="DATE" />
+      <arg column="InstallationPersonnelName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="InstallationPersonnelContacts" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MaintenancePersonnelName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="MaintenancePersonnelContacts" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="note" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="Sort" javaType="java.lang.Short" jdbcType="SMALLINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    TerminalID, StationID, Title, RegionID, DistrictID, Address, Longitude, Latitude, 
+    Contact, Tel, TimeSave, Operator, DeleteFlag, InstallationCompany, InstallationTime, 
+    InstallationPersonnelName, InstallationPersonnelContacts, MaintenancePersonnelName, 
+    MaintenancePersonnelContacts, note, Sort
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="com.enoch.studio.model.DeployKey" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from deploy
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.enoch.studio.model.DeployKey">
+    delete from deploy
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="com.enoch.studio.model.Deploy">
+    insert into deploy (TerminalID, StationID, Title, 
+      RegionID, DistrictID, Address, 
+      Longitude, Latitude, Contact, 
+      Tel, TimeSave, Operator, 
+      DeleteFlag, InstallationCompany, InstallationTime, 
+      InstallationPersonnelName, InstallationPersonnelContacts, 
+      MaintenancePersonnelName, MaintenancePersonnelContacts, 
+      note, Sort)
+    values (#{terminalid,jdbcType=SMALLINT}, #{stationid,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, 
+      #{regionid,jdbcType=SMALLINT}, #{districtid,jdbcType=SMALLINT}, #{address,jdbcType=VARCHAR}, 
+      #{longitude,jdbcType=REAL}, #{latitude,jdbcType=REAL}, #{contact,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{timesave,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, 
+      #{deleteflag,jdbcType=TINYINT}, #{installationcompany,jdbcType=VARCHAR}, #{installationtime,jdbcType=DATE}, 
+      #{installationpersonnelname,jdbcType=VARCHAR}, #{installationpersonnelcontacts,jdbcType=VARCHAR}, 
+      #{maintenancepersonnelname,jdbcType=VARCHAR}, #{maintenancepersonnelcontacts,jdbcType=VARCHAR}, 
+      #{note,jdbcType=VARCHAR}, #{sort,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.enoch.studio.model.Deploy">
+    insert into deploy
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="terminalid != null">
+        TerminalID,
+      </if>
+      <if test="stationid != null">
+        StationID,
+      </if>
+      <if test="title != null">
+        Title,
+      </if>
+      <if test="regionid != null">
+        RegionID,
+      </if>
+      <if test="districtid != null">
+        DistrictID,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="longitude != null">
+        Longitude,
+      </if>
+      <if test="latitude != null">
+        Latitude,
+      </if>
+      <if test="contact != null">
+        Contact,
+      </if>
+      <if test="tel != null">
+        Tel,
+      </if>
+      <if test="timesave != null">
+        TimeSave,
+      </if>
+      <if test="operator != null">
+        Operator,
+      </if>
+      <if test="deleteflag != null">
+        DeleteFlag,
+      </if>
+      <if test="installationcompany != null">
+        InstallationCompany,
+      </if>
+      <if test="installationtime != null">
+        InstallationTime,
+      </if>
+      <if test="installationpersonnelname != null">
+        InstallationPersonnelName,
+      </if>
+      <if test="installationpersonnelcontacts != null">
+        InstallationPersonnelContacts,
+      </if>
+      <if test="maintenancepersonnelname != null">
+        MaintenancePersonnelName,
+      </if>
+      <if test="maintenancepersonnelcontacts != null">
+        MaintenancePersonnelContacts,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="sort != null">
+        Sort,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="terminalid != null">
+        #{terminalid,jdbcType=SMALLINT},
+      </if>
+      <if test="stationid != null">
+        #{stationid,jdbcType=SMALLINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="regionid != null">
+        #{regionid,jdbcType=SMALLINT},
+      </if>
+      <if test="districtid != null">
+        #{districtid,jdbcType=SMALLINT},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        #{latitude,jdbcType=REAL},
+      </if>
+      <if test="contact != null">
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="timesave != null">
+        #{timesave,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null">
+        #{deleteflag,jdbcType=TINYINT},
+      </if>
+      <if test="installationcompany != null">
+        #{installationcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="installationtime != null">
+        #{installationtime,jdbcType=DATE},
+      </if>
+      <if test="installationpersonnelname != null">
+        #{installationpersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="installationpersonnelcontacts != null">
+        #{installationpersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelname != null">
+        #{maintenancepersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelcontacts != null">
+        #{maintenancepersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        #{sort,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.enoch.studio.model.Deploy">
+    update deploy
+    <set>
+      <if test="title != null">
+        Title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="regionid != null">
+        RegionID = #{regionid,jdbcType=SMALLINT},
+      </if>
+      <if test="districtid != null">
+        DistrictID = #{districtid,jdbcType=SMALLINT},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="longitude != null">
+        Longitude = #{longitude,jdbcType=REAL},
+      </if>
+      <if test="latitude != null">
+        Latitude = #{latitude,jdbcType=REAL},
+      </if>
+      <if test="contact != null">
+        Contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="timesave != null">
+        TimeSave = #{timesave,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null">
+        Operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteflag != null">
+        DeleteFlag = #{deleteflag,jdbcType=TINYINT},
+      </if>
+      <if test="installationcompany != null">
+        InstallationCompany = #{installationcompany,jdbcType=VARCHAR},
+      </if>
+      <if test="installationtime != null">
+        InstallationTime = #{installationtime,jdbcType=DATE},
+      </if>
+      <if test="installationpersonnelname != null">
+        InstallationPersonnelName = #{installationpersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="installationpersonnelcontacts != null">
+        InstallationPersonnelContacts = #{installationpersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelname != null">
+        MaintenancePersonnelName = #{maintenancepersonnelname,jdbcType=VARCHAR},
+      </if>
+      <if test="maintenancepersonnelcontacts != null">
+        MaintenancePersonnelContacts = #{maintenancepersonnelcontacts,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null">
+        Sort = #{sort,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.enoch.studio.model.Deploy">
+    update deploy
+    set Title = #{title,jdbcType=VARCHAR},
+      RegionID = #{regionid,jdbcType=SMALLINT},
+      DistrictID = #{districtid,jdbcType=SMALLINT},
+      Address = #{address,jdbcType=VARCHAR},
+      Longitude = #{longitude,jdbcType=REAL},
+      Latitude = #{latitude,jdbcType=REAL},
+      Contact = #{contact,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      TimeSave = #{timesave,jdbcType=TIMESTAMP},
+      Operator = #{operator,jdbcType=VARCHAR},
+      DeleteFlag = #{deleteflag,jdbcType=TINYINT},
+      InstallationCompany = #{installationcompany,jdbcType=VARCHAR},
+      InstallationTime = #{installationtime,jdbcType=DATE},
+      InstallationPersonnelName = #{installationpersonnelname,jdbcType=VARCHAR},
+      InstallationPersonnelContacts = #{installationpersonnelcontacts,jdbcType=VARCHAR},
+      MaintenancePersonnelName = #{maintenancepersonnelname,jdbcType=VARCHAR},
+      MaintenancePersonnelContacts = #{maintenancepersonnelcontacts,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR},
+      Sort = #{sort,jdbcType=SMALLINT}
+    where TerminalID = #{terminalid,jdbcType=SMALLINT}
+      and StationID = #{stationid,jdbcType=SMALLINT}
+  </update>
+</mapper>
